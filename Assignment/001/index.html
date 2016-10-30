@@ -3,12 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>Coursera AngularJS</title>
+    <style media="screen">
+      span.green {
+        color: green;
+      }
+      span.red {
+        color: red;
+      }
+      input.red {
+        border: 1px solid red;
+      }
+      input.green {
+        border: 1px solid green;
+      }
+
+    </style>
   </head>
   <body>
     <div ng-controller="LunchCheckController">
       <!-- empty handle -->
-      <input type="text" ng-model="items" placeholder="Counting words by commas"/>
-      <br/><span>{{msg}}</span>
+      <input type="text" ng-model="items" placeholder="Counting words by commas"
+        ng-class="(valid == null) ? '' : ((valid) ? 'green' : 'red')"/>
+      <br/><span ng-class="(valid == null) ? '' : ((valid) ? 'green' : 'red')">{{msg}}</span>
       <br/><button ng-click="check();"> Check if too much </button>
     </div>
 
